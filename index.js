@@ -8,13 +8,20 @@ const app = express();
 const port = 3000;
 
 // PostgreSQL connection pool
+// const pool = new Pool({
+//   user: 'postgres', // Replace with your PostgreSQL username
+//   host: 'localhost',
+//   database: 'guestbook',
+//   password: 'Gopinath_7_moorthy', // Replace with your PostgreSQL password
+//   port: 5432,
+// });
+
+const { Pool } = require('pg');
 const pool = new Pool({
-  user: 'postgres', // Replace with your PostgreSQL username
-  host: 'localhost',
-  database: 'guestbook',
-  password: 'Gopinath_7_moorthy', // Replace with your PostgreSQL password
-  port: 5432,
+  connectionString: process.env.DATABASE_URL,
+  ssl: { rejectUnauthorized: false } // Required for Render PostgreSQL
 });
+module.exports = pool;
 
 app.use(bodyParser.json());
 app.use(express.static('public'));

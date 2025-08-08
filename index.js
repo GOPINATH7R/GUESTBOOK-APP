@@ -1,8 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const { Pool } = require('pg');
-const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+
 
 
 const app = express();
@@ -10,10 +9,10 @@ const port = 3000;
 
 // PostgreSQL connection pool
 const pool = new Pool({
-  user: 'your_postgres_user', // Replace with your PostgreSQL username
+  user: 'postgres', // Replace with your PostgreSQL username
   host: 'localhost',
   database: 'guestbook',
-  password: 'your_postgres_password', // Replace with your PostgreSQL password
+  password: 'Gopinath_7_moorthy', // Replace with your PostgreSQL password
   port: 5432,
 });
 
@@ -46,6 +45,7 @@ app.post('/api/entries', async (req, res) => {
   }
 });
 
-app.listen(port, () => {
-  console.log(`Server is running on http://localhost:${port}`);
-});
+
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+

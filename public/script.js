@@ -1,6 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
     const form = document.getElementById('guestbook-form');
     const entriesContainer = document.getElementById('entries-container');
+    
 
     const fetchEntries = async () => {
         const response = await fetch('/api/entries');
